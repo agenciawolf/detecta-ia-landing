@@ -362,11 +362,21 @@
       font-size:13px; font-weight:500; color:var(--text-secondary); flex-shrink:0;
     }
     .trust-item span:first-child { font-size:18px; }
+    .trust-duplicate { display:contents; } /* visible on desktop for marquee loop */
 
     @media(max-width:480px) {
-      .trust-marquee { animation:none; flex-wrap:wrap; justify-content:center; gap:var(--sp-3); white-space:normal; }
-      .trust-item { font-size:12px; font-weight:500; color:var(--text-secondary); }
-      .trust-item span:first-child { font-size:18px; }
+      .trust-strip { padding:var(--sp-5) var(--sp-4); }
+      .trust-marquee {
+        animation:none; white-space:normal;
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:12px 16px; justify-items:start;
+      }
+      .trust-item {
+        font-size:12px; font-weight:500; color:var(--text-secondary);
+        gap:8px; white-space:nowrap;
+      }
+      .trust-item span:first-child { font-size:20px; flex-shrink:0; }
+      .trust-duplicate { display:none !important; } /* hide duplicates on mobile */
     }
 
     /* ===================================================================
@@ -916,8 +926,9 @@
     }
     .social-stat-label { font-size:12px; color:var(--text-muted); margin-top:4px; }
 
+    /* Testimonials — Desktop: 3 cols, 2 rows */
     .testimonials {
-      display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-6);
+      display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-5);
     }
     .testimonial-card {
       background:var(--glass-bg); border:1px solid var(--glass-border);
@@ -926,6 +937,7 @@
       position:relative; overflow:hidden;
       transition:all 0.4s;
       opacity:0;
+      display:flex; flex-direction:column;
     }
     .testimonial-card::after {
       content:''; position:absolute; inset:0;
@@ -935,7 +947,22 @@
     .testimonial-card:hover::after { opacity:1; }
     .testimonial-card:hover { border-color:rgba(255,120,84,0.3); transform:translateY(-3px); }
 
-    .testimonial-stars { color:#F59E0B; font-size:14px; margin-bottom:var(--sp-3); letter-spacing:2px; }
+    /* Avatar + Author header */
+    .testimonial-header {
+      display:flex; align-items:center; gap:12px;
+      margin-bottom:var(--sp-3);
+    }
+    .testimonial-avatar {
+      width:46px; height:46px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:16px; font-weight:700;
+      color:#fff; letter-spacing:-0.02em;
+    }
+    .testimonial-author-info { display:flex; flex-direction:column; }
+    .testimonial-author { font-size:13px; font-weight:600; color:var(--text-primary); line-height:1.3; }
+    .testimonial-location { font-size:11px; color:var(--text-muted); line-height:1.3; }
+
+    .testimonial-stars { color:#F59E0B; font-size:13px; margin-bottom:var(--sp-2); letter-spacing:2px; }
     .testimonial-status {
       font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em;
       padding:3px 8px; border-radius:var(--r-sm);
@@ -944,14 +971,40 @@
     .testimonial-status.found { background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); color:var(--error); }
     .testimonial-status.clean { background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); color:var(--success); }
     .testimonial-status.done { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); color:var(--info); }
-    .testimonial-text { font-size:14px; color:var(--text-secondary); line-height:1.7; font-style:italic; margin-bottom:var(--sp-4); }
-    .testimonial-author { font-size:12px; font-weight:600; color:var(--text-primary); }
-    .testimonial-location { font-size:11px; color:var(--text-muted); }
+    .testimonial-text { font-size:14px; color:var(--text-secondary); line-height:1.7; font-style:italic; flex:1; }
 
-
+    /* Mobile: horizontal carousel with scroll snap */
     @media(max-width:768px) {
-      .testimonials { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
+      .testimonials {
+        grid-template-columns:none;
+        display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+        gap:var(--sp-4); padding-bottom:var(--sp-4);
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+      .testimonials::-webkit-scrollbar { display:none; }
+      .testimonial-card {
+        min-width:300px; max-width:85vw; flex-shrink:0;
+        scroll-snap-align:center;
+      }
       .social-stats { grid-template-columns:repeat(3,1fr); }
+    }
+    @media(max-width:480px) {
+      .testimonial-card { min-width:280px; max-width:88vw; }
+    }
+    /* Carousel scroll indicators */
+    .testimonial-dots {
+      display:none; justify-content:center; gap:8px; margin-top:var(--sp-4);
+    }
+    .testimonial-dot {
+      width:8px; height:8px; border-radius:50%;
+      background:var(--border2); transition:all 0.3s;
+    }
+    .testimonial-dot.active {
+      background:var(--t-mid); width:24px; border-radius:4px;
+    }
+    @media(max-width:768px) {
+      .testimonial-dots { display:flex; }
     }
 
     /* ===================================================================
@@ -1257,14 +1310,16 @@
     <div class="trust-item"><span>&#128179;</span> Pagamento Único</div>
     <div class="trust-item"><span>&#9878;&#65039;</span> Conforme LGPD</div>
     <div class="trust-item"><span>&#128241;</span> Tinder · Bumble · Hinge · Badoo</div>
-    <!-- Duplicate for seamless marquee -->
-    <div class="trust-item"><span>&#128274;</span> Busca 100% Anônima</div>
-    <div class="trust-item"><span>&#9889;</span> Resultado Imediato</div>
-    <div class="trust-item"><span>&#9989;</span> Apenas Dados Públicos</div>
-    <div class="trust-item"><span>&#128737;&#65039;</span> Seus Dados Protegidos</div>
-    <div class="trust-item"><span>&#128179;</span> Pagamento Único</div>
-    <div class="trust-item"><span>&#9878;&#65039;</span> Conforme LGPD</div>
-    <div class="trust-item"><span>&#128241;</span> Tinder · Bumble · Hinge · Badoo</div>
+    <!-- Duplicate for seamless marquee (hidden on mobile) -->
+    <div class="trust-duplicate">
+      <div class="trust-item"><span>&#128274;</span> Busca 100% Anônima</div>
+      <div class="trust-item"><span>&#9889;</span> Resultado Imediato</div>
+      <div class="trust-item"><span>&#9989;</span> Apenas Dados Públicos</div>
+      <div class="trust-item"><span>&#128737;&#65039;</span> Seus Dados Protegidos</div>
+      <div class="trust-item"><span>&#128179;</span> Pagamento Único</div>
+      <div class="trust-item"><span>&#9878;&#65039;</span> Conforme LGPD</div>
+      <div class="trust-item"><span>&#128241;</span> Tinder · Bumble · Hinge · Badoo</div>
+    </div>
   </div>
 </section>
 
@@ -1552,28 +1607,95 @@
       </div>
     </div>
 
-    <div class="testimonials">
+    <div class="testimonials" id="testimonialsCarousel">
+      <!-- 1. Ana Paula -->
       <div class="testimonial-card">
-        <div class="testimonial-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
-        <div class="testimonial-status found">Perfil encontrado</div>
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#FF7854,#FD267A);">AP</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Ana Paula, 31 anos</div>
+            <div class="testimonial-location">Belo Horizonte, MG</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status found">✓ Perfil encontrado</div>
         <p class="testimonial-text">“Eu tinha suspeitas e decidi usar o Detecta.ia. Em minutos, a ferramenta confirmou o perfil dele no Tinder. Foi um processo rápido e direto que me trouxe a verdade.”</p>
-        <div class="testimonial-author">Ana Paula, 31 anos</div>
-        <div class="testimonial-location">Belo Horizonte, MG</div>
       </div>
+      <!-- 2. Patrícia Santos -->
       <div class="testimonial-card">
-        <div class="testimonial-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
-        <div class="testimonial-status clean">Nenhum perfil encontrado</div>
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#10B981,#059669);">PS</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Patrícia Santos, 27 anos</div>
+            <div class="testimonial-location">São Paulo, SP</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status clean">✓ Nenhum perfil encontrado</div>
         <p class="testimonial-text">“Estava com dúvidas e resolvi verificar. Rodei a análise pelo Detecta.ia e o resultado veio limpo — nenhum perfil encontrado. Me deu a tranquilidade que eu precisava pra seguir em frente.”</p>
-        <div class="testimonial-author">Patrícia Santos, 27 anos</div>
-        <div class="testimonial-location">São Paulo, SP</div>
       </div>
+      <!-- 3. Juliana Faria -->
       <div class="testimonial-card">
-        <div class="testimonial-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
-        <div class="testimonial-status done">Verificação concluída</div>
-        <p class="testimonial-text">"Processo super simples, fiz tudo pelo celular em poucos minutos. Ninguém desconfiou de nada. Recomendo pra quem quer a verdade sem complicação."</p>
-        <div class="testimonial-author">Juliana Faria, 35 anos</div>
-        <div class="testimonial-location">Curitiba, PR</div>
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#3B82F6,#2563EB);">JF</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Juliana Faria, 35 anos</div>
+            <div class="testimonial-location">Curitiba, PR</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status done">✓ Verificação concluída</div>
+        <p class="testimonial-text">“Processo super simples, fiz tudo pelo celular em poucos minutos. Ninguém desconfiou de nada. Recomendo pra quem quer a verdade sem complicação.”</p>
       </div>
+      <!-- 4. Ricardo Mendes -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706);">RM</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Ricardo Mendes, 33 anos</div>
+            <div class="testimonial-location">Rio de Janeiro, RJ</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status found">✓ Perfil encontrado</div>
+        <p class="testimonial-text">“Minha namorada andava estranha e eu precisava tirar a dúvida. Usei o Detecta.ia e em poucos minutos apareceu o perfil dela no Badoo. Pelo menos agora sei a verdade.”</p>
+      </div>
+      <!-- 5. Fernanda Costa -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#8B5CF6,#7C3AED);">FC</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Fernanda Costa, 29 anos</div>
+            <div class="testimonial-location">Salvador, BA</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status clean">✓ Nenhum perfil encontrado</div>
+        <p class="testimonial-text">“Uma amiga me indicou o Detecta.ia. Fiz a verificação e não encontrou nada. Fiquei aliviada e pude focar no meu relacionamento sem aquela desconfiança.”</p>
+      </div>
+      <!-- 6. Lucas Oliveira -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#06B6D4,#0891B2);">LO</div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author">Lucas Oliveira, 28 anos</div>
+            <div class="testimonial-location">Porto Alegre, RS</div>
+          </div>
+        </div>
+        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-status done">✓ Verificação concluída</div>
+        <p class="testimonial-text">“Achei que ia ser complicado mas foi tudo muito direto. Coloquei os dados, a busca rodou e o resultado veio rápido. Ferramenta séria e discreta.”</p>
+      </div>
+    </div>
+
+    <!-- Carousel dots (mobile only) -->
+    <div class="testimonial-dots" id="testimonialDots">
+      <div class="testimonial-dot active"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
     </div>
 
     <div class="app-chips" style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-2);margin-top:var(--sp-6);">
@@ -2042,6 +2164,23 @@
     var el = document.getElementById(id);
     if(el) el.addEventListener('focus', function(){ this.style.borderColor = ''; });
   });
+
+  /* ── TESTIMONIAL CAROUSEL DOTS ── */
+  var carousel = document.getElementById('testimonialsCarousel');
+  var dots = document.querySelectorAll('#testimonialDots .testimonial-dot');
+  if(carousel && dots.length > 0) {
+    carousel.addEventListener('scroll', function(){
+      var cards = carousel.querySelectorAll('.testimonial-card');
+      if(!cards.length) return;
+      var scrollLeft = carousel.scrollLeft;
+      var cardWidth = cards[0].offsetWidth + 16; /* gap */
+      var activeIdx = Math.round(scrollLeft / cardWidth);
+      activeIdx = Math.max(0, Math.min(activeIdx, dots.length - 1));
+      dots.forEach(function(d, i){
+        d.classList.toggle('active', i === activeIdx);
+      });
+    });
+  }
 
 })();
 </script>
