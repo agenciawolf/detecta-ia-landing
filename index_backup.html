@@ -328,7 +328,7 @@
 
     /* Funnel Card */
     .funnel-card {
-      max-width:560px; margin:0 auto;
+      max-width:520px; margin:0 auto;
       background:rgba(26,14,40,0.7);
       backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
       border:1px solid rgba(93,40,120,0.3);
@@ -345,19 +345,11 @@
     }
     .form-subtitle { font-size:14px; color:var(--text-muted); margin-bottom:var(--sp-6); }
 
-    .form-row {
-      display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4);
-    }
-    @media(max-width:480px) {
-      .form-row { grid-template-columns:1fr; }
-    }
-
     .input-group { display:flex; flex-direction:column; gap:var(--sp-1); margin-bottom:var(--sp-4); }
     .input-label {
       font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em;
       text-transform:uppercase; color:var(--text-muted);
     }
-    .input-required { color:var(--t-pink); }
     .input {
       background:rgba(18,10,20,0.8); border:1px solid var(--border2);
       border-radius:var(--r-md); padding:12px 16px;
@@ -368,109 +360,13 @@
     .input:focus { border-color:var(--t-mid); box-shadow:0 0 0 3px rgba(253,38,122,0.15); }
     .input-hint { font-size:11px; color:var(--text-faint); margin-top:2px; }
 
-    /* Gender Toggle */
-    .gender-toggle {
-      display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-2);
-    }
-    .gender-btn {
-      display:flex; align-items:center; justify-content:center; gap:var(--sp-2);
-      padding:12px; border-radius:var(--r-md);
-      background:rgba(18,10,20,0.8); border:1px solid var(--border2);
-      font-family:var(--font-body); font-size:14px; color:var(--text-muted);
-      cursor:pointer; transition:all 0.3s; user-select:none;
-    }
-    .gender-btn:hover { border-color:var(--border2); color:var(--text-secondary); }
-    .gender-btn.active {
-      background:var(--grad-cta); border-color:transparent;
-      color:#fff; font-weight:600;
-      box-shadow:0 4px 16px rgba(253,38,122,0.25);
-    }
-
-    /* Photo Upload */
-    .photo-upload-section {
-      margin-top:var(--sp-4); padding:var(--sp-5);
-      background:rgba(18,10,20,0.5); border:1px solid var(--border);
-      border-radius:var(--r-lg);
-    }
-    .photo-upload-header {
-      display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:var(--sp-3);
-    }
-    .photo-upload-label {
-      font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em;
-      text-transform:uppercase; color:var(--text-muted);
-    }
-    .photo-upload-badge {
-      font-family:var(--font-mono); font-size:9px; letter-spacing:0.06em;
-      padding:3px 10px; border-radius:var(--r-full);
-      background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25);
-      color:var(--success);
-    }
-    .photo-upload-hint {
-      font-size:11px; color:var(--text-faint); margin-bottom:var(--sp-3);
-    }
-    .photo-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-3);
-    }
-    .photo-slot {
-      aspect-ratio:1; border-radius:var(--r-md);
-      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-      cursor:pointer; transition:all 0.3s; position:relative; overflow:hidden;
-    }
-    .photo-slot.primary {
-      border:2px dashed var(--t-mid);
-      background:rgba(253,38,122,0.04);
-    }
-    .photo-slot.secondary {
-      border:1px solid var(--border2);
-      background:rgba(18,10,20,0.6);
-    }
-    .photo-slot:hover { border-color:var(--t-orange); background:rgba(255,120,84,0.06); }
-    .photo-slot-icon {
-      font-size:24px; opacity:0.5;
-    }
-    .photo-slot-label {
-      font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em;
-      text-transform:uppercase;
-    }
-    .photo-slot.primary .photo-slot-label { color:var(--t-mid); }
-    .photo-slot.secondary .photo-slot-label { color:var(--text-faint); }
-    .photo-slot input[type="file"] {
-      position:absolute; inset:0; opacity:0; cursor:pointer;
-    }
-    .photo-slot .photo-preview {
-      position:absolute; inset:0; object-fit:cover; width:100%; height:100%;
-      border-radius:var(--r-md);
-    }
-    .photo-slot .photo-remove {
-      position:absolute; top:6px; right:6px; width:22px; height:22px;
-      border-radius:50%; background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,0.2);
-      color:#fff; font-size:12px; display:none; align-items:center; justify-content:center;
-      cursor:pointer; z-index:2;
-    }
-    .photo-slot.has-photo .photo-remove { display:flex; }
-    .photo-slot.has-photo .photo-slot-icon,
-    .photo-slot.has-photo .photo-slot-label { display:none; }
-
-    .photo-lgpd {
-      display:flex; align-items:flex-start; gap:var(--sp-2);
-      margin-top:var(--sp-3); padding:var(--sp-3);
-      background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15);
-      border-radius:var(--r-md);
-    }
-    .photo-lgpd-icon { font-size:16px; flex-shrink:0; margin-top:1px; }
-    .photo-lgpd-text {
-      font-size:11px; color:var(--text-muted); line-height:1.5;
-    }
-    .photo-lgpd-text strong { color:var(--text-secondary); }
-
     .btn-form {
-      width:100%; margin-top:var(--sp-6);
+      width:100%; margin-top:var(--sp-4);
       display:flex; align-items:center; justify-content:center; gap:var(--sp-2);
       background:var(--grad-cta); color:#fff;
-      font-family:var(--font-display); font-size:15px; font-weight:700;
-      letter-spacing:0.06em;
-      padding:16px; border-radius:var(--r-lg);
+      font-family:var(--font-display); font-size:14px; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase;
+      padding:14px; border-radius:var(--r-lg);
       border:none; cursor:pointer;
       box-shadow:var(--shadow-flame);
       position:relative; overflow:hidden;
@@ -486,133 +382,25 @@
     /* Step B — Search Animation */
     .search-anim { display:none; }
     .search-anim.active { display:block; }
-
-    .scan-hero {
-      display:flex; flex-direction:column; align-items:center; gap:var(--sp-5);
-      margin-bottom:var(--sp-5);
-    }
-    .scan-photo-wrap {
-      position:relative; width:180px; height:180px;
-    }
-    .scan-photo-img {
-      width:100%; height:100%; object-fit:cover; border-radius:var(--r-lg);
-    }
-    .scan-photo-placeholder {
-      width:100%; height:100%; border-radius:var(--r-lg);
-      background:var(--surface2); display:flex; align-items:center; justify-content:center;
-    }
-    .scan-photo-placeholder svg { width:64px; height:64px; opacity:0.3; }
-    /* Scan corners */
-    .scan-corners {
-      position:absolute; inset:-4px; pointer-events:none;
-    }
-    .scan-corners::before, .scan-corners::after,
-    .scan-corner-bl::before, .scan-corner-br::before {
-      content:''; position:absolute; width:24px; height:24px;
-      border-color:var(--t-mid); border-style:solid;
-    }
-    .scan-corners::before { top:0; left:0; border-width:3px 0 0 3px; border-radius:4px 0 0 0; }
-    .scan-corners::after  { top:0; right:0; border-width:3px 3px 0 0; border-radius:0 4px 0 0; }
-    .scan-corner-bl::before { bottom:0; left:0; border-width:0 0 3px 3px; border-radius:0 0 0 4px; }
-    .scan-corner-br::before { bottom:0; right:0; border-width:0 3px 3px 0; border-radius:0 0 4px 0; }
-    .scan-corner-bl, .scan-corner-br {
-      position:absolute; inset:-4px; pointer-events:none;
-    }
-    /* Scan line animation */
-    .scan-line {
-      position:absolute; left:0; right:0; height:2px;
-      background:var(--grad-h); opacity:0.8;
-      animation:scanLine 2.5s ease-in-out infinite;
-      box-shadow:0 0 12px rgba(253,38,122,0.5);
-    }
-    @keyframes scanLine {
-      0%   { top:0%; }
-      50%  { top:95%; }
-      100% { top:0%; }
-    }
-    /* Facial dots */
-    .scan-dots {
-      position:absolute; inset:0; pointer-events:none;
-    }
-    .scan-dot {
-      position:absolute; width:6px; height:6px; border-radius:50%;
-      background:var(--t-mid); box-shadow:0 0 8px rgba(253,38,122,0.6);
-      animation:dotPulse 1.5s ease-in-out infinite;
-    }
-    .scan-dot:nth-child(2) { animation-delay:0.2s; }
-    .scan-dot:nth-child(3) { animation-delay:0.4s; }
-    .scan-dot:nth-child(4) { animation-delay:0.6s; }
-    .scan-dot:nth-child(5) { animation-delay:0.8s; }
-    .scan-dot:nth-child(6) { animation-delay:1.0s; }
-    .scan-dot:nth-child(7) { animation-delay:1.2s; }
-    .scan-dot:nth-child(8) { animation-delay:1.4s; }
-    @keyframes dotPulse {
-      0%,100% { opacity:0.3; transform:scale(0.8); }
-      50%     { opacity:1;   transform:scale(1.4); }
-    }
-    .scan-label {
-      font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em;
-      text-transform:uppercase; color:var(--t-mid); text-align:center;
-    }
-
-    .scan-status {
-      text-align:center;
-    }
-    .scan-status-text {
-      font-family:var(--font-body); font-size:14px; color:var(--text-secondary);
-      margin-bottom:var(--sp-2);
-    }
-    .scan-status-sub {
-      font-family:var(--font-mono); font-size:11px; color:var(--text-faint);
-      margin-bottom:var(--sp-4);
-    }
-
-    /* App chip cycling */
-    .app-scan-chip {
-      display:inline-flex; align-items:center; gap:8px;
-      background:var(--surface2); border:1px solid var(--border);
-      border-radius:var(--r-full); padding:8px 18px;
-      font-size:13px; font-weight:600; color:var(--text-primary);
-      transition:all 0.4s;
-    }
-    .app-scan-chip .app-scan-spinner {
-      width:14px; height:14px; border:2px solid var(--border2);
-      border-top-color:var(--t-mid); border-radius:50%;
-      animation:spin 0.8s linear infinite;
-    }
-    @keyframes spin { to { transform:rotate(360deg); } }
-
-    /* Match flash */
-    .scan-match {
-      display:none; text-align:center; padding:var(--sp-4);
-    }
-    .scan-match.active { display:block; animation:popIn 0.5s ease-out; }
-    .scan-match-text {
-      font-family:var(--font-display); font-size:16px; font-weight:700;
-      color:var(--success);
-    }
-
-    /* Terminal (secondary) */
     .terminal-window {
       background:rgba(10,5,16,0.9); border:1px solid var(--border);
       border-radius:var(--r-lg); overflow:hidden;
-      margin-top:var(--sp-4);
     }
     .terminal-header {
       display:flex; align-items:center; gap:6px;
-      padding:8px 12px; background:rgba(18,10,20,0.8); border-bottom:1px solid var(--border);
+      padding:10px 14px; background:rgba(18,10,20,0.8); border-bottom:1px solid var(--border);
     }
-    .terminal-dot { width:6px; height:6px; border-radius:50%; }
+    .terminal-dot { width:8px; height:8px; border-radius:50%; }
     .terminal-dot.r { background:#EF4444; }
     .terminal-dot.y { background:#F59E0B; }
     .terminal-dot.g { background:#10B981; }
-    .terminal-title { font-family:var(--font-mono); font-size:9px; color:var(--text-faint); margin-left:auto; }
-    .terminal-body { padding:var(--sp-3); max-height:120px; overflow-y:auto; }
+    .terminal-title { font-family:var(--font-mono); font-size:10px; color:var(--text-faint); margin-left:auto; }
+    .terminal-body { padding:var(--sp-4); min-height:200px; position:relative; }
     .terminal-line {
-      font-family:var(--font-mono); font-size:10px; color:var(--text-faint);
-      padding:2px 0; display:flex; align-items:center; gap:6px;
-      opacity:0; transform:translateY(4px);
-      transition:opacity 0.3s, transform 0.3s;
+      font-family:var(--font-mono); font-size:12px; color:var(--text-muted);
+      padding:4px 0; display:flex; align-items:center; gap:8px;
+      opacity:0; transform:translateY(8px);
+      transition:opacity 0.4s, transform 0.4s;
     }
     .terminal-line.visible { opacity:1; transform:translateY(0); }
     .terminal-line .prefix { color:var(--t-orange); }
@@ -621,110 +409,54 @@
 
     .progress-bar-wrap {
       margin-top:var(--sp-4); background:var(--surface2); border-radius:var(--r-full);
-      height:3px; overflow:hidden;
+      height:6px; overflow:hidden;
     }
     .progress-bar-fill {
       height:100%; width:0%; border-radius:var(--r-full);
-      background:var(--grad-h); transition:width 0.3s ease;
+      background:var(--grad-h); transition:width 0.5s ease;
     }
     .progress-label {
-      font-family:var(--font-mono); font-size:9px; color:var(--text-faint);
-      text-align:right; margin-top:2px;
+      font-family:var(--font-mono); font-size:10px; color:var(--text-faint);
+      text-align:right; margin-top:4px;
     }
 
     /* Step C — Results */
     .results-screen { display:none; }
-    .results-screen.active { display:block; animation:animationIn 0.6s ease-out; }
-
-    .results-badge {
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 16px; border-radius:var(--r-full);
-      background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25);
-      color:var(--success); font-family:var(--font-mono); font-size:11px;
-      letter-spacing:0.05em; margin-bottom:var(--sp-4);
-    }
+    .results-screen.active { display:block; }
     .results-headline {
       font-family:var(--font-display); font-size:20px; font-weight:800;
-      letter-spacing:-0.03em; color:var(--text-primary); margin-bottom:var(--sp-2);
-    }
-    .results-subtitle {
-      font-size:13px; color:var(--text-muted); margin-bottom:var(--sp-5);
-    }
-    .results-subtitle strong { color:var(--text-secondary); }
-
-    /* Result cards grid */
-    .results-grid {
-      display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-3);
-      margin-bottom:var(--sp-5);
-    }
-    @media(max-width:600px) {
-      .results-grid {
-        grid-template-columns:1fr;
-        max-width:320px; margin-left:auto; margin-right:auto;
-      }
+      letter-spacing:-0.03em; color:var(--text-primary); margin-bottom:var(--sp-4);
     }
 
     .result-card {
       background:var(--surface2); border:1px solid var(--border);
-      border-radius:var(--r-lg); overflow:hidden; position:relative;
+      border-radius:var(--r-lg); padding:var(--sp-4);
+      margin-bottom:var(--sp-3); position:relative; overflow:hidden;
     }
-    .result-card-photo {
-      width:100%; aspect-ratio:3/4; position:relative;
-      overflow:hidden; background:var(--surface3);
+    .result-card-blur {
+      filter:blur(6px); pointer-events:none; user-select:none;
     }
-    .result-card-photo img {
-      width:100%; height:100%; object-fit:cover;
-      filter:blur(22px) brightness(0.7) saturate(0.6);
-      transform:scale(1.15);
+    .result-card-row { display:flex; align-items:center; gap:var(--sp-3); }
+    .result-avatar {
+      width:44px; height:44px; border-radius:50%;
+      background:var(--grad-soft); border:2px solid var(--border2);
+      display:flex; align-items:center; justify-content:center; font-size:18px;
     }
-    .result-card-photo .placeholder-silhouette {
-      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(180deg, var(--surface3) 0%, var(--surface2) 100%);
-      filter:blur(0);
-    }
-    .result-card-photo .placeholder-silhouette svg {
-      width:60px; height:60px; opacity:0.15;
+    .result-info { flex:1; }
+    .result-name { font-size:14px; font-weight:600; color:var(--text-primary); }
+    .result-app { font-family:var(--font-mono); font-size:10px; color:var(--t-orange); }
+    .result-badge {
+      font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em;
+      padding:4px 10px; border-radius:var(--r-full);
+      background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3);
+      color:var(--success); text-transform:uppercase;
     }
 
-    /* Badges on photo */
-    .result-app-badge {
-      position:absolute; top:8px; left:8px;
-      display:flex; align-items:center; gap:4px;
-      padding:4px 10px; border-radius:var(--r-full);
-      background:rgba(10,5,16,0.75); backdrop-filter:blur(8px);
-      font-size:11px; font-weight:600; color:#fff;
-    }
-    .result-similarity-badge {
-      position:absolute; top:8px; right:8px;
-      padding:4px 10px; border-radius:var(--r-full);
-      background:rgba(16,185,129,0.15); backdrop-filter:blur(8px);
-      border:1px solid rgba(16,185,129,0.3);
-      font-family:var(--font-mono); font-size:10px; font-weight:700;
-      color:var(--success); letter-spacing:0.03em;
-    }
-
-    /* Lock overlay */
     .result-lock-overlay {
-      position:absolute; inset:0; display:flex; flex-direction:column;
-      align-items:center; justify-content:center; gap:6px;
-      background:rgba(10,5,16,0.45); backdrop-filter:blur(2px);
+      position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+      background:rgba(10,5,16,0.5); backdrop-filter:blur(2px);
     }
-    .lock-icon { font-size:28px; opacity:0.7; }
-    .lock-text {
-      font-family:var(--font-mono); font-size:10px; letter-spacing:0.1em;
-      text-transform:uppercase; color:rgba(255,255,255,0.6);
-    }
-
-    /* Blurred info below photo */
-    .result-card-info {
-      padding:var(--sp-3); filter:blur(4px); pointer-events:none; user-select:none;
-    }
-    .result-card-name {
-      font-size:14px; font-weight:600; color:var(--text-primary);
-    }
-    .result-card-age {
-      font-size:12px; color:var(--text-muted);
-    }
+    .lock-icon { font-size:20px; }
 
     .results-benefits { margin:var(--sp-5) 0; }
     .benefit-item {
@@ -1085,10 +817,6 @@
       .hero-stats { gap:var(--sp-2); }
       .funnel-card-inner { padding:var(--sp-5); }
       .steps-grid { gap:var(--sp-4); }
-      .photo-upload-section { padding:var(--sp-4); }
-      .photo-upload-badge { display:none; }
-      .scan-photo-wrap { width:140px; height:140px; }
-      .results-grid { grid-template-columns:1fr; max-width:280px; }
     }
 
     /* Reduced motion */
@@ -1182,127 +910,29 @@
         <!-- STEP A: Form -->
         <div id="stepForm">
           <div class="form-title">Inicie sua verificação</div>
-          <div class="form-subtitle">Quanto mais informações você fornecer, mais precisa será a análise.</div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <label class="input-label">Nome próprio <span class="input-required">*</span></label>
-              <input class="input" type="text" id="inputName" placeholder="Ex: João" required>
-            </div>
-            <div class="input-group">
-              <label class="input-label">Idade <span class="input-required">*</span></label>
-              <input class="input" type="number" id="inputAge" placeholder="Ex: 32" min="18" max="99">
-            </div>
-          </div>
-
+          <div class="form-subtitle">Preencha com os dados que você tem pra começar a busca.</div>
           <div class="input-group">
-            <label class="input-label">Gênero da pessoa <span class="input-required">*</span></label>
-            <div class="gender-toggle">
-              <div class="gender-btn" data-gender="M">&#9794;&#65039; Masculino</div>
-              <div class="gender-btn" data-gender="F">&#9792;&#65039; Feminino</div>
-            </div>
-            <input type="hidden" id="inputGender" value="">
+            <label class="input-label">Nome</label>
+            <input class="input" type="text" id="inputName" placeholder="Ex: João Silva" required>
           </div>
-
           <div class="input-group">
-            <label class="input-label">Cidade <span class="input-required">*</span></label>
+            <label class="input-label">Idade aproximada</label>
+            <input class="input" type="text" id="inputAge" placeholder="Ex: 32 anos">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Cidade</label>
             <input class="input" type="text" id="inputCity" placeholder="Ex: São Paulo">
           </div>
-
-          <!-- Photo Upload -->
-          <div class="photo-upload-section">
-            <div class="photo-upload-header">
-              <span class="photo-upload-label">Fotos da pessoa</span>
-              <span class="photo-upload-badge">Análise de similaridade avançada</span>
-            </div>
-            <p class="photo-upload-hint">Use apenas fotos claras com o rosto visível e de frente</p>
-            <div class="photo-grid">
-              <div class="photo-slot primary" id="photoSlot0">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Obrigatório</span>
-                <input type="file" accept="image/*" data-slot="0">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot1">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 2</span>
-                <input type="file" accept="image/*" data-slot="1">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot2">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 3</span>
-                <input type="file" accept="image/*" data-slot="2">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot3">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 4</span>
-                <input type="file" accept="image/*" data-slot="3">
-                <div class="photo-remove">&times;</div>
-              </div>
-            </div>
-            <div class="photo-lgpd">
-              <span class="photo-lgpd-icon">&#128737;&#65039;</span>
-              <div class="photo-lgpd-text">
-                <strong>Os seus dados estão protegidos</strong> — De acordo com a LGPD, as fotos são utilizadas apenas para a análise. As fotos enviadas são automaticamente eliminadas minutos após a análise.
-              </div>
-            </div>
+          <div class="input-group">
+            <label class="input-label">Telefone (opcional — aumenta a precisão)</label>
+            <input class="input" type="tel" id="inputPhone" placeholder="Ex: (11) 99999-9999">
+            <span class="input-hint">Usado apenas para cruzar com dados das plataformas. Não armazenamos.</span>
           </div>
-
-          <button class="btn-form" id="btnSearch" type="button">Iniciar verificação &#128269;</button>
+          <button class="btn-form" id="btnSearch" type="button">VERIFICAR AGORA</button>
         </div>
 
         <!-- STEP B: Search Animation -->
         <div id="stepSearch" class="search-anim">
-          <div class="scan-hero">
-            <div class="scan-photo-wrap" id="scanPhotoWrap">
-              <!-- Photo or placeholder injected by JS -->
-              <div class="scan-photo-placeholder" id="scanPlaceholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-faint)">
-                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-              </div>
-              <img class="scan-photo-img" id="scanPhotoImg" style="display:none" alt="">
-              <div class="scan-corners"></div>
-              <div class="scan-corner-bl"></div>
-              <div class="scan-corner-br"></div>
-              <div class="scan-line"></div>
-              <div class="scan-dots" id="scanDots">
-                <div class="scan-dot" style="top:22%;left:35%"></div>
-                <div class="scan-dot" style="top:22%;left:62%"></div>
-                <div class="scan-dot" style="top:38%;left:30%"></div>
-                <div class="scan-dot" style="top:38%;left:67%"></div>
-                <div class="scan-dot" style="top:48%;left:49%"></div>
-                <div class="scan-dot" style="top:58%;left:40%"></div>
-                <div class="scan-dot" style="top:58%;left:57%"></div>
-                <div class="scan-dot" style="top:68%;left:49%"></div>
-              </div>
-              <div class="scan-label" style="position:absolute;bottom:-24px;left:0;right:0;">ANÁLISE DE SIMILARIDADE</div>
-            </div>
-          </div>
-
-          <div class="scan-status">
-            <div class="scan-status-text" id="scanStatusText">Análise de similaridade em andamento</div>
-            <div class="scan-status-sub">A verificar 10+ aplicações</div>
-            <div style="display:flex;justify-content:center;margin:var(--sp-3) 0">
-              <div class="app-scan-chip" id="appScanChip">
-                <span id="appScanIcon">&#128293;</span>
-                <span id="appScanName">Tinder</span>
-                <div class="app-scan-spinner"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="scan-match" id="scanMatch">
-            <div class="scan-match-text">&#10004;&#65039; Correspondência potencial detectada!</div>
-          </div>
-
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="progressBar"></div>
-          </div>
-          <div class="progress-label" id="progressLabel">0%</div>
-
           <div class="terminal-window">
             <div class="terminal-header">
               <div class="terminal-dot r"></div>
@@ -1311,91 +941,64 @@
               <span class="terminal-title">detecta.ia — busca ativa</span>
             </div>
             <div class="terminal-body" id="terminalBody">
-              <div class="terminal-line" data-msg="Iniciando protocolo de busca..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Iniciando protocolo de busca em redes públicas..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
               <div class="terminal-line" data-msg="Analisando parâmetros de nome e idade..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line" data-msg="Consultando bases de dados públicas..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line" data-msg="Cruzando informações geolocalizadas..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line" data-msg="Verificando múltiplas plataformas..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line" data-msg="Filtrando resultados por relevância..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line" data-msg="Identificando correspondências..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
-              <div class="terminal-line success" data-msg="Busca concluída. Resultados prontos."><span class="prefix">&#10003;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Consultando bases de dados abertas de perfis..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Cruzando informações geolocalizadas em apps..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Verificando compatibilidade em múltiplas plataformas..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Filtrando resultados públicos para relevância..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line" data-msg="Identificando possíveis correspondências de perfil..."><span class="prefix">&gt;</span> <span class="msg"></span></div>
+              <div class="terminal-line success" data-msg="Busca concluída. Resultados prontos para visualização."><span class="prefix">&#10003;</span> <span class="msg"></span></div>
             </div>
           </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <div class="progress-label" id="progressLabel">0%</div>
         </div>
 
         <!-- STEP C: Results -->
         <div id="stepResults" class="results-screen">
-          <div class="results-badge">&#10003; Análise concluída com sucesso</div>
-          <div class="results-headline">Resultados da verificação</div>
-          <div class="results-subtitle" id="resultsSubtitle">3 correspondência(s) potencial(is) detectada(s) em <strong id="resultsCityName">sua região</strong></div>
+          <div class="results-headline">Perfis localizados. O relatório completo está a um clique.</div>
 
-          <div class="results-grid" id="resultsGrid">
-            <!-- Card 1 -->
-            <div class="result-card">
-              <div class="result-card-photo">
-                <div class="placeholder-silhouette" id="resultPhoto0">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-faint)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="result-card">
+            <div class="result-card-blur">
+              <div class="result-card-row">
+                <div class="result-avatar">&#128100;</div>
+                <div class="result-info">
+                  <div class="result-name">Perfil encontrado #1</div>
+                  <div class="result-app">TINDER · Ativo recentemente</div>
                 </div>
-                <span class="result-app-badge">&#128293; Tinder</span>
-                <span class="result-similarity-badge">96% Similaridade</span>
-                <div class="result-lock-overlay">
-                  <span class="lock-icon">&#128274;</span>
-                  <span class="lock-text">Resultado bloqueado</span>
-                </div>
-              </div>
-              <div class="result-card-info">
-                <div class="result-card-name">Mar...</div>
-                <div class="result-card-age">28 anos</div>
+                <span class="result-badge">Match</span>
               </div>
             </div>
-            <!-- Card 2 -->
-            <div class="result-card">
-              <div class="result-card-photo">
-                <div class="placeholder-silhouette" id="resultPhoto1">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-faint)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="result-lock-overlay"><span class="lock-icon">&#128274;</span></div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-card-blur">
+              <div class="result-card-row">
+                <div class="result-avatar">&#128100;</div>
+                <div class="result-info">
+                  <div class="result-name">Perfil encontrado #2</div>
+                  <div class="result-app">BUMBLE · Última atividade: 2 dias</div>
                 </div>
-                <span class="result-app-badge">&#128029; Bumble</span>
-                <span class="result-similarity-badge">93% Similaridade</span>
-                <div class="result-lock-overlay">
-                  <span class="lock-icon">&#128274;</span>
-                  <span class="lock-text">Resultado bloqueado</span>
-                </div>
-              </div>
-              <div class="result-card-info">
-                <div class="result-card-name">Ana...</div>
-                <div class="result-card-age">31 anos</div>
+                <span class="result-badge">Match</span>
               </div>
             </div>
-            <!-- Card 3 -->
-            <div class="result-card">
-              <div class="result-card-photo">
-                <div class="placeholder-silhouette" id="resultPhoto2">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-faint)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </div>
-                <span class="result-app-badge">&#128156; Badoo</span>
-                <span class="result-similarity-badge">87% Similaridade</span>
-                <div class="result-lock-overlay">
-                  <span class="lock-icon">&#128274;</span>
-                  <span class="lock-text">Resultado bloqueado</span>
-                </div>
-              </div>
-              <div class="result-card-info">
-                <div class="result-card-name">Car...</div>
-                <div class="result-card-age">26 anos</div>
-              </div>
-            </div>
+            <div class="result-lock-overlay"><span class="lock-icon">&#128274;</span></div>
           </div>
 
           <div class="results-benefits">
             <div class="benefit-item"><span class="benefit-check">&#10003;</span> Foto de perfil completa e ampliada</div>
             <div class="benefit-item"><span class="benefit-check">&#10003;</span> Descrição do perfil e interesses declarados</div>
             <div class="benefit-item"><span class="benefit-check">&#10003;</span> Em quais apps o perfil foi encontrado</div>
-            <div class="benefit-item"><span class="benefit-check">&#10003;</span> Última atividade registrada (se disponível)</div>
+            <div class="benefit-item"><span class="benefit-check">&#10003;</span> Última atividade registrada (se disponivel)</div>
             <div class="benefit-item"><span class="benefit-check">&#10003;</span> Relatório completo para download</div>
           </div>
 
           <button class="btn-unlock" type="button">DESBLOQUEAR MEU RELATÓRIO — R$37,90</button>
-          <p class="unlock-microcopy">&#128274; Pagamento 100% seguro · Cobrança única · Dados protegidos pela LGPD</p>
+          <p class="unlock-microcopy">&#128274; Pagamento 100% seguro · Sem assinatura · Privacidade garantida</p>
         </div>
 
       </div>
@@ -1760,50 +1363,6 @@
     });
   });
 
-  /* ── GENDER TOGGLE ── */
-  document.querySelectorAll('.gender-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.gender-btn').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      document.getElementById('inputGender').value = btn.getAttribute('data-gender');
-    });
-  });
-
-  /* ── PHOTO UPLOAD ── */
-  var uploadedPhotos = [null, null, null, null];
-  document.querySelectorAll('.photo-slot input[type="file"]').forEach(function(input){
-    input.addEventListener('change', function(e){
-      var slot = parseInt(this.getAttribute('data-slot'));
-      var file = e.target.files[0];
-      if(!file) return;
-      var reader = new FileReader();
-      reader.onload = function(ev){
-        uploadedPhotos[slot] = ev.target.result;
-        var slotEl = document.getElementById('photoSlot' + slot);
-        var existing = slotEl.querySelector('.photo-preview');
-        if(existing) existing.remove();
-        var img = document.createElement('img');
-        img.className = 'photo-preview';
-        img.src = ev.target.result;
-        slotEl.appendChild(img);
-        slotEl.classList.add('has-photo');
-      };
-      reader.readAsDataURL(file);
-    });
-  });
-  document.querySelectorAll('.photo-remove').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation(); e.preventDefault();
-      var slotEl = btn.parentElement;
-      var slotIdx = parseInt(slotEl.querySelector('input').getAttribute('data-slot'));
-      uploadedPhotos[slotIdx] = null;
-      var preview = slotEl.querySelector('.photo-preview');
-      if(preview) preview.remove();
-      slotEl.classList.remove('has-photo');
-      slotEl.querySelector('input').value = '';
-    });
-  });
-
   /* ── FUNNEL STATE MACHINE ── */
   var stepForm = document.getElementById('stepForm');
   var stepSearch = document.getElementById('stepSearch');
@@ -1814,83 +1373,29 @@
   var terminalLines = document.querySelectorAll('#terminalBody .terminal-line');
 
   var searchMessages = [
-    'Iniciando protocolo de busca...',
+    'Iniciando protocolo de busca em redes públicas...',
     'Analisando parâmetros de nome e idade...',
-    'Consultando bases de dados públicas...',
-    'Cruzando informações geolocalizadas...',
-    'Verificando múltiplas plataformas...',
-    'Filtrando resultados por relevância...',
-    'Identificando correspondências...',
-    'Busca concluída. Resultados prontos.'
+    'Consultando bases de dados abertas de perfis...',
+    'Cruzando informações geolocalizadas em apps...',
+    'Verificando compatibilidade em múltiplas plataformas...',
+    'Filtrando resultados públicos para relevância...',
+    'Identificando possíveis correspondências de perfil...',
+    'Busca concluída. Resultados prontos para visualização.'
   ];
-
-  var scanApps = [
-    { icon:'\uD83D\uDD25', name:'Tinder' },
-    { icon:'\uD83D\uDC1D', name:'Bumble' },
-    { icon:'\uD83D\uDDA4', name:'Hinge' },
-    { icon:'\uD83D\uDC9C', name:'Badoo' },
-    { icon:'\uD83D\uDC99', name:'Happn' },
-    { icon:'\uD83D\uDC93', name:'Meetic' }
-  ];
-
-  function validateForm(){
-    var valid = true;
-    var name = document.getElementById('inputName');
-    var age = document.getElementById('inputAge');
-    var gender = document.getElementById('inputGender');
-    var city = document.getElementById('inputCity');
-
-    [name, age, city].forEach(function(el){ el.style.borderColor = ''; });
-    document.querySelectorAll('.gender-btn').forEach(function(b){ b.style.boxShadow = ''; });
-
-    if(!name.value.trim()){ name.style.borderColor = 'var(--error)'; name.focus(); valid = false; }
-    else if(!age.value.trim()){ age.style.borderColor = 'var(--error)'; age.focus(); valid = false; }
-    else if(!gender.value){
-      document.querySelectorAll('.gender-btn').forEach(function(b){ b.style.boxShadow = '0 0 0 2px var(--error)'; });
-      valid = false;
-    }
-    else if(!city.value.trim()){ city.style.borderColor = 'var(--error)'; city.focus(); valid = false; }
-    return valid;
-  }
 
   btnSearch.addEventListener('click', function(){
-    if(!validateForm()) return;
-
-    var cityVal = document.getElementById('inputCity').value.trim();
-    var hasPhoto = uploadedPhotos[0] !== null;
-
-    // Setup scan photo
-    if(hasPhoto){
-      document.getElementById('scanPhotoImg').src = uploadedPhotos[0];
-      document.getElementById('scanPhotoImg').style.display = 'block';
-      document.getElementById('scanPlaceholder').style.display = 'none';
-      document.getElementById('scanDots').style.display = 'block';
-    } else {
-      document.getElementById('scanPhotoImg').style.display = 'none';
-      document.getElementById('scanPlaceholder').style.display = 'flex';
-      document.getElementById('scanDots').style.display = 'none';
-    }
-
-    // Setup results city
-    if(cityVal) document.getElementById('resultsCityName').textContent = cityVal;
-
-    // If user uploaded photos, use them blurred in result cards
-    if(hasPhoto){
-      for(var ri = 0; ri < 3; ri++){
-        var photoIdx = Math.min(ri, uploadedPhotos.filter(function(p){return p!==null;}).length - 1);
-        var photoSrc = uploadedPhotos[photoIdx] || uploadedPhotos[0];
-        var container = document.getElementById('resultPhoto' + ri);
-        if(container && photoSrc){
-          container.innerHTML = '<img src="' + photoSrc + '" style="width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.7) saturate(0.6) hue-rotate(' + (ri*25) + 'deg);transform:scale(1.' + (15+ri*5) + ')">';
-        }
-      }
+    var name = document.getElementById('inputName').value.trim();
+    if(!name){
+      document.getElementById('inputName').style.borderColor = 'var(--error)';
+      document.getElementById('inputName').focus();
+      return;
     }
 
     // Transition to Step B
     stepForm.style.display = 'none';
     stepSearch.classList.add('active');
 
-    var totalDuration = 18000; // 18 seconds
+    var totalDuration = 13000; // 13 seconds
     var msgInterval = totalDuration / searchMessages.length;
     var startTime = Date.now();
 
@@ -1903,37 +1408,10 @@
       if(pct >= 100) clearInterval(progressTimer);
     }, 100);
 
-    // App cycling animation
-    var appIdx = 0;
-    var appChipIcon = document.getElementById('appScanIcon');
-    var appChipName = document.getElementById('appScanName');
-    var appCycleTimer = setInterval(function(){
-      appIdx = (appIdx + 1) % scanApps.length;
-      appChipIcon.textContent = scanApps[appIdx].icon;
-      appChipName.textContent = scanApps[appIdx].name;
-    }, 2500);
-
-    // Status text updates
-    var statusTexts = [
-      'Análise de similaridade em andamento',
-      'Comparando dados faciais...',
-      'Cruzando localização e idade...',
-      'Verificando correspondências...',
-      'Finalizando análise...'
-    ];
-    var stIdx = 0;
-    var statusTimer = setInterval(function(){
-      stIdx++;
-      if(stIdx < statusTexts.length){
-        document.getElementById('scanStatusText').textContent = statusTexts[stIdx];
-      }
-    }, 3500);
-
     // Typing effect for terminal messages
     searchMessages.forEach(function(msg, i){
       setTimeout(function(){
         var line = terminalLines[i];
-        if(!line) return;
         line.classList.add('visible');
         var msgSpan = line.querySelector('.msg');
         var chars = msg.split('');
@@ -1945,29 +1423,21 @@
           } else {
             clearInterval(typeTimer);
           }
-        }, 22);
+        }, 18);
       }, i * msgInterval);
     });
-
-    // Show match flash at ~85%
-    setTimeout(function(){
-      document.getElementById('scanMatch').classList.add('active');
-      clearInterval(appCycleTimer);
-      clearInterval(statusTimer);
-    }, totalDuration * 0.85);
 
     // Transition to Step C
     setTimeout(function(){
       stepSearch.classList.remove('active');
       stepSearch.style.display = 'none';
       stepResults.classList.add('active');
-    }, totalDuration + 800);
+    }, totalDuration + 500);
   });
 
-  // Reset input borders on focus
-  ['inputName','inputAge','inputCity'].forEach(function(id){
-    var el = document.getElementById(id);
-    if(el) el.addEventListener('focus', function(){ this.style.borderColor = ''; });
+  // Reset input border on focus
+  document.getElementById('inputName').addEventListener('focus', function(){
+    this.style.borderColor = '';
   });
 
 })();
