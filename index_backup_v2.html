@@ -215,59 +215,6 @@
 
     .hero-content { position:relative; z-index:1; text-align:center; }
 
-    /* Logo */
-    .hero-logo {
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      margin-bottom:var(--sp-6);
-    }
-    .hero-logo-icon {
-      width:36px; height:36px;
-    }
-    .hero-logo-text {
-      font-family:var(--font-display); font-size:clamp(24px,4vw,32px);
-      letter-spacing:-0.04em; line-height:1;
-    }
-    .hero-logo-text .logo-bold {
-      font-weight:800;
-      background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    }
-    .hero-logo-text .logo-light {
-      font-weight:300; opacity:0.55;
-      background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    }
-
-    /* App Chips */
-    .hero-app-chips {
-      display:flex; flex-wrap:wrap; justify-content:center; gap:var(--sp-2);
-      margin-top:var(--sp-6); margin-bottom:var(--sp-2);
-    }
-    .app-chip {
-      display:inline-flex; align-items:center; gap:6px;
-      background:var(--surface2); border:1px solid var(--border);
-      border-radius:var(--r-full); padding:6px 14px;
-      font-family:var(--font-body); font-size:12px; font-weight:500;
-      color:var(--text-secondary);
-      transition:border-color 0.2s, background 0.2s;
-    }
-    .app-chip:hover {
-      border-color:var(--border2); background:var(--surface3);
-    }
-    .app-chip-icon { font-size:15px; line-height:1; }
-
-    /* Micro-credentials */
-    .hero-credentials {
-      display:flex; align-items:center; justify-content:center; gap:var(--sp-6);
-      margin-top:var(--sp-4);
-    }
-    .credential-item {
-      display:flex; align-items:center; gap:6px;
-      font-family:var(--font-body); font-size:12px;
-      color:var(--text-muted);
-    }
-    .credential-icon {
-      font-size:14px; opacity:0.7;
-    }
-
     .hero-badge {
       display:inline-flex; align-items:center; gap:var(--sp-2);
       background:rgba(255,120,84,0.08); border:1px solid rgba(255,120,84,0.2);
@@ -293,12 +240,10 @@
       animation: textSlide 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
       opacity:0;
     }
-    .hero-headline .word:nth-child(2) { animation-delay:0.08s; }
-    .hero-headline .word:nth-child(3) { animation-delay:0.16s; }
-    .hero-headline .word:nth-child(4) { animation-delay:0.24s; }
-    .hero-headline .word:nth-child(5) { animation-delay:0.32s; }
-    .hero-headline .word:nth-child(6) { animation-delay:0.40s; }
-    .hero-headline .word:nth-child(7) { animation-delay:0.48s; }
+    .hero-headline .word:nth-child(2) { animation-delay:0.1s; }
+    .hero-headline .word:nth-child(3) { animation-delay:0.2s; }
+    .hero-headline .word:nth-child(4) { animation-delay:0.3s; }
+    .hero-headline .word:nth-child(5) { animation-delay:0.4s; }
 
     .hero-sub {
       font-size:clamp(15px,2.5vw,18px); color:var(--text-secondary);
@@ -957,6 +902,18 @@
     .testimonial-author { font-size:12px; font-weight:600; color:var(--text-primary); }
     .testimonial-location { font-size:11px; color:var(--text-muted); }
 
+    .app-chips {
+      display:flex; flex-wrap:wrap; gap:var(--sp-2); justify-content:center;
+      margin-top:var(--sp-8);
+    }
+    .app-chip {
+      display:flex; align-items:center; gap:6px;
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:var(--r-md); padding:6px 14px;
+      font-size:12px; font-weight:600; color:var(--text-secondary);
+      transition:all 0.2s;
+    }
+    .app-chip:hover { border-color:var(--border2); background:var(--surface3); color:var(--text-primary); transform:scale(1.04); }
 
     @media(max-width:768px) {
       .testimonials { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
@@ -1120,10 +1077,6 @@
       .hero-stat-label { font-size:9px; }
       .btn-cta { width:100%; padding:16px; font-size:14px; }
       .offer-card-inner { padding:var(--sp-8) var(--sp-5); }
-      .hero-credentials { gap:var(--sp-4); }
-      .credential-item { font-size:11px; }
-      .hero-app-chips { gap:6px; }
-      .app-chip { padding:5px 10px; font-size:11px; }
     }
     @media(max-width:480px) {
       .container { padding:0 var(--sp-4); }
@@ -1136,12 +1089,6 @@
       .photo-upload-badge { display:none; }
       .scan-photo-wrap { width:140px; height:140px; }
       .results-grid { grid-template-columns:1fr; max-width:280px; }
-      .hero-credentials { flex-wrap:wrap; justify-content:center; gap:var(--sp-3); }
-      .hero-app-chips { gap:5px; }
-      .app-chip { padding:4px 8px; font-size:10px; gap:4px; }
-      .app-chip-icon { font-size:13px; }
-      .hero-logo-text { font-size:22px; }
-      .hero-logo-icon { width:28px; height:28px; }
     }
 
     /* Reduced motion */
@@ -1172,81 +1119,23 @@
     <div class="hero-blob hero-blob-3"></div>
   </div>
   <div class="container hero-content">
-
-    <!-- Logo -->
-    <div class="hero-logo">
-      <svg class="hero-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FF7854"/>
-            <stop offset="50%" stop-color="#FE3C72"/>
-            <stop offset="100%" stop-color="#FD267A"/>
-          </linearGradient>
-        </defs>
-        <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2.5" fill="none"/>
-        <circle cx="17" cy="17" r="7" stroke="url(#logoGrad)" stroke-width="2.2" fill="none"/>
-        <line x1="22" y1="22" x2="30" y2="30" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M28 14 L32 10" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-        <path d="M30 20 L34 20" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-        <path d="M14 28 L10 32" stroke="url(#logoGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-      </svg>
-      <span class="hero-logo-text">
-        <span class="logo-bold">Detecta</span><span class="logo-light">.ia</span>
-      </span>
-    </div>
-
-    <!-- Badge -->
     <div class="hero-badge">
       <span class="pulse-dot"></span>
       VERIFICAÇÃO REAL · RESULTADO EM MINUTOS
     </div>
-
-    <!-- Headline v2.0 -->
     <h1 class="hero-headline">
-      <span class="word">Verifique</span> <span class="word">a</span> <span class="word">presença</span> <span class="word">em</span> <span class="word">apps</span> <span class="word">de</span> <span class="word">encontro.</span>
+      <span class="word">Sua</span> <span class="word">intuição</span> <span class="word">está</span> <span class="word">gritando?</span>
     </h1>
-
-    <!-- Subheadline v2.0 -->
-    <p class="hero-sub">Nossa IA analisa milhões de dados para verificar Tinder, Bumble, Hinge e Badoo.</p>
-
-    <!-- CTA v2.0 -->
-    <a href="#busca" class="btn-cta">INICIAR VERIFICAÇÃO →</a>
-
-    <!-- Micro-credentials -->
-    <div class="hero-credentials">
-      <div class="credential-item">
-        <span class="credential-icon">&#128274;</span>
-        <span>Encriptação SSL</span>
-      </div>
-      <div class="credential-item">
-        <span class="credential-icon">&#128065;</span>
-        <span>Totalmente anônimo</span>
-      </div>
-      <div class="credential-item">
-        <span class="credential-icon">&#128101;</span>
-        <span>+50K verificações</span>
-      </div>
-    </div>
-
-    <!-- App Chips -->
-    <div class="hero-app-chips">
-      <div class="app-chip"><span class="app-chip-icon">🔥</span> Tinder</div>
-      <div class="app-chip"><span class="app-chip-icon">🐝</span> Bumble</div>
-      <div class="app-chip"><span class="app-chip-icon">💎</span> Hinge</div>
-      <div class="app-chip"><span class="app-chip-icon">💜</span> Badoo</div>
-      <div class="app-chip"><span class="app-chip-icon">💚</span> Happn</div>
-      <div class="app-chip"><span class="app-chip-icon">💗</span> Meetic</div>
-      <div class="app-chip"><span class="app-chip-icon">🍒</span> Fruitz</div>
-    </div>
-
-    <!-- Stats -->
+    <p class="hero-sub">Verifique perfis públicos no Tinder, Bumble, Hinge e Badoo. Resultado em minutos — sem que ninguém saiba.</p>
+    <a href="#busca" class="btn-cta">QUERO SABER A VERDADE</a>
+    <p class="hero-microcopy">&#128274; Busca anônima · Resultado em minutos · Sem cadastro</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-value" data-target="48000">0</div>
         <div class="hero-stat-label">Verificações realizadas</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value" data-target="4.9" data-suffix=" ⭐">0</div>
+        <div class="hero-stat-value" data-target="4.9" data-suffix="&#11088;">0</div>
         <div class="hero-stat-label">Avaliação média</div>
       </div>
       <div class="hero-stat">
@@ -1293,7 +1182,7 @@
         <!-- STEP A: Form -->
         <div id="stepForm">
           <div class="form-title">Inicie sua verificação</div>
-          <div class="form-subtitle">Preencha os dados que você tem para iniciar a análise.</div>
+          <div class="form-subtitle">Quanto mais informações você fornecer, mais precisa será a análise.</div>
 
           <div class="form-row">
             <div class="input-group">
@@ -1437,7 +1326,7 @@
         <!-- STEP C: Results -->
         <div id="stepResults" class="results-screen">
           <div class="results-badge">&#10003; Análise concluída com sucesso</div>
-          <div class="results-headline">Perfis localizados. O relatório completo está a um clique.</div>
+          <div class="results-headline">Resultados da verificação</div>
           <div class="results-subtitle" id="resultsSubtitle">3 correspondência(s) potencial(is) detectada(s) em <strong id="resultsCityName">sua região</strong></div>
 
           <div class="results-grid" id="resultsGrid">
@@ -1506,7 +1395,7 @@
           </div>
 
           <button class="btn-unlock" type="button">DESBLOQUEAR MEU RELATÓRIO — R$37,90</button>
-          <p class="unlock-microcopy">&#128274; Pagamento 100% seguro · Sem assinatura · Privacidade garantida</p>
+          <p class="unlock-microcopy">&#128274; Pagamento 100% seguro · Cobrança única · Dados protegidos pela LGPD</p>
         </div>
 
       </div>
@@ -1520,8 +1409,10 @@
 <section class="agitation-section">
   <div class="container">
     <div class="section-label">POR QUE VOCÊ ESTÁ AQUI</div>
-    <h2 class="agitation-headline">Identifique os sinais.</h2>
-    <p class="agitation-body" style="margin-bottom:var(--sp-8);">Comportamentos alterados, celular protegido ou horários diferentes podem gerar dúvidas. Obtenha uma análise direta para entender o que está acontecendo.</p>
+    <h2 class="agitation-headline">Você sente. E não é coisa<br>da sua cabeça.</h2>
+    <p class="agitation-body">Aquele frio na barriga quando ele vira o celular pra baixo. A pontada no peito quando ele demora pra responder, mas tá online. As desculpas que não se encaixam. Você percebe cada detalhe, mesmo quando tenta se convencer de que é paranoia. Não é. Sua intuição existe por um motivo.</p>
+    <p class="agitation-body">Milhares de mulheres passam por isso todos os dias. A dúvida que não deixa dormir, os cenários que a mente cria de madrugada, a angústia de não saber se está exagerando ou se está certa. Viver assim é exaustivo. Você merece clareza, merece saber a verdade para poder tomar suas próprias decisões — seja qual for o resultado.</p>
+    <p class="agitation-body" style="margin-bottom:var(--sp-8);">Buscar respostas não é desconfiança sem fundamento. É autocuidado. É respeito por você mesma e pelo seu direito à transparência no relacionamento.</p>
     <div class="symptom-grid">
       <div class="symptom-card"><div class="symptom-icon">&#128241;</div><div class="symptom-text">Celular sempre virado pra baixo</div></div>
       <div class="symptom-card"><div class="symptom-icon">&#127769;</div><div class="symptom-text">Online de madrugada, sem explicação</div></div>
@@ -1588,14 +1479,14 @@
       <div class="testimonial-card">
         <div class="testimonial-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
         <div class="testimonial-status found">Perfil encontrado</div>
-        <p class="testimonial-text">“Eu tinha suspeitas e decidi usar o Detecta.ia. Em minutos, a ferramenta confirmou o perfil dele no Tinder. Foi um processo rápido e direto que me trouxe a verdade.”</p>
+        <p class="testimonial-text">"Meu namorado tava esquisito demais, celular grudado o tempo todo. Usei o Detecta.ia e em 3 minutos apareceu o perfil dele no Tinder. Doeu, mas que alívio ter a verdade na mão pra poder seguir em frente."</p>
         <div class="testimonial-author">Ana Paula, 31 anos</div>
         <div class="testimonial-location">Belo Horizonte, MG</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div>
         <div class="testimonial-status clean">Nenhum perfil encontrado</div>
-        <p class="testimonial-text">“Estava com dúvidas e resolvi verificar. Rodei a análise pelo Detecta.ia e o resultado veio limpo — nenhum perfil encontrado. Me deu a tranquilidade que eu precisava pra seguir em frente.”</p>
+        <p class="testimonial-text">"Tava surtando achando que tinha outra. Fiz a busca morrendo de medo e... nada. Não encontrou perfil nenhum. O alívio que senti não tem preço. Minha paz de espírito voltou."</p>
         <div class="testimonial-author">Patrícia Santos, 27 anos</div>
         <div class="testimonial-location">São Paulo, SP</div>
       </div>
@@ -1608,13 +1499,11 @@
       </div>
     </div>
 
-    <div class="app-chips" style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-2);margin-top:var(--sp-6);">
-      <div class="app-chip"><span class="app-chip-icon">🔥</span> Tinder</div>
-      <div class="app-chip"><span class="app-chip-icon">🐝</span> Bumble</div>
-      <div class="app-chip"><span class="app-chip-icon">💎</span> Hinge</div>
-      <div class="app-chip"><span class="app-chip-icon">💜</span> Badoo</div>
-      <div class="app-chip"><span class="app-chip-icon">💚</span> Happn</div>
-      <div class="app-chip"><span class="app-chip-icon">💗</span> Meetic</div>
+    <div class="app-chips">
+      <div class="app-chip">&#128293; Tinder</div>
+      <div class="app-chip">&#128155; Bumble</div>
+      <div class="app-chip">&#128142; Hinge</div>
+      <div class="app-chip">&#128156; Badoo</div>
     </div>
   </div>
 </section>
@@ -1627,7 +1516,7 @@
     <div class="offer-card">
       <div class="offer-card-bar"></div>
       <div class="offer-card-inner">
-        <h2 class="offer-headline">Verificação completa por R$37,90.</h2>
+        <h2 class="offer-headline">Chega de viver na sombra da dúvida.</h2>
         <div class="offer-benefits">
           <div class="offer-benefit"><span class="check">&#10003;</span> Verificação completa em Tinder, Bumble, Hinge e Badoo</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Relatório detalhado com fotos, bio e última atividade</div>
@@ -1718,9 +1607,11 @@
   </div>
   <div class="container closing-content">
     <div class="section-label" style="justify-content:center;">VOCÊ MERECE SABER</div>
-    <h2 class="closing-headline">Resultado direto. Verificação anônima.</h2>
-    <p class="closing-body">Com o Detecta.ia, sua verificação é rápida, segura e totalmente anônima. Tome uma decisão informada hoje.</p>
-    <a href="#busca" class="btn-cta">INICIAR VERIFICAÇÃO →</a>
+    <h2 class="closing-headline">Permita-se ter a verdade.</h2>
+    <p class="closing-body">Viver com a incerteza é um peso que ninguém deveria carregar sozinha. A dúvida corrói por dentro, rouba seu sono, sua energia, sua paz. E muitas vezes, a única forma de seguir em frente é encarar a realidade de frente.</p>
+    <p class="closing-body">Buscar a verdade não é fraqueza. É coragem. É respeito por você mesma e pelo seu direito de tomar decisões informadas sobre a sua própria vida. Seja qual for o resultado, você vai sair dessa com mais clareza e mais força.</p>
+    <p class="closing-body">Dê a si mesma essa chance. Você merece a paz de espírito.</p>
+    <a href="#busca" class="btn-cta">QUERO SABER A VERDADE</a>
     <p class="closing-microcopy">Sua verdade, sua liberdade. &#128274; Busca anônima e segura.</p>
   </div>
 </section>
