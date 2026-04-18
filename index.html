@@ -256,16 +256,16 @@
 
     /* Micro-credentials */
     .hero-credentials {
-      display:flex; align-items:center; justify-content:center; gap:var(--sp-6);
-      margin-top:var(--sp-4);
+      display:flex; align-items:center; justify-content:center; gap:var(--sp-5);
+      margin-top:var(--sp-5);
     }
     .credential-item {
-      display:flex; align-items:center; gap:6px;
-      font-family:var(--font-body); font-size:12px;
-      color:var(--text-muted);
+      display:flex; align-items:center; gap:8px;
+      font-family:var(--font-body); font-size:13px; font-weight:500;
+      color:var(--text-secondary);
     }
     .credential-icon {
-      font-size:14px; opacity:0.7;
+      font-size:16px; opacity:0.85;
     }
 
     .hero-badge {
@@ -359,13 +359,14 @@
     }
     .trust-item {
       display:inline-flex; align-items:center; gap:var(--sp-2);
-      font-size:13px; color:var(--text-muted); flex-shrink:0;
+      font-size:13px; font-weight:500; color:var(--text-secondary); flex-shrink:0;
     }
-    .trust-item span:first-child { font-size:16px; }
+    .trust-item span:first-child { font-size:18px; }
 
     @media(max-width:480px) {
       .trust-marquee { animation:none; flex-wrap:wrap; justify-content:center; gap:var(--sp-3); white-space:normal; }
-      .trust-item { font-size:11px; }
+      .trust-item { font-size:12px; font-weight:500; color:var(--text-secondary); }
+      .trust-item span:first-child { font-size:18px; }
     }
 
     /* ===================================================================
@@ -395,10 +396,10 @@
 
     /* Step A — Form */
     .form-title {
-      font-family:var(--font-display); font-size:22px; font-weight:800;
-      letter-spacing:-0.03em; color:var(--text-primary); margin-bottom:var(--sp-1);
+      font-family:var(--font-display); font-size:clamp(22px,5vw,28px); font-weight:800;
+      letter-spacing:-0.03em; color:var(--text-primary); margin-bottom:var(--sp-2);
     }
-    .form-subtitle { font-size:14px; color:var(--text-muted); margin-bottom:var(--sp-6); }
+    .form-subtitle { font-size:15px; color:var(--text-secondary); margin-bottom:var(--sp-6); line-height:1.5; }
 
     .form-row {
       display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4);
@@ -409,17 +410,17 @@
 
     .input-group { display:flex; flex-direction:column; gap:var(--sp-1); margin-bottom:var(--sp-4); }
     .input-label {
-      font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em;
-      text-transform:uppercase; color:var(--text-muted);
+      font-family:var(--font-mono); font-size:11px; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--text-secondary); font-weight:600;
     }
     .input-required { color:var(--t-pink); }
     .input {
       background:rgba(18,10,20,0.8); border:1px solid var(--border2);
-      border-radius:var(--r-md); padding:12px 16px;
-      font-family:var(--font-body); font-size:14px; color:var(--text-primary);
+      border-radius:var(--r-md); padding:14px 18px;
+      font-family:var(--font-body); font-size:15px; color:var(--text-primary);
       outline:none; transition:border-color 0.2s, box-shadow 0.2s; width:100%;
     }
-    .input::placeholder { color:var(--text-faint); }
+    .input::placeholder { color:var(--text-muted); }
     .input:focus { border-color:var(--t-mid); box-shadow:0 0 0 3px rgba(253,38,122,0.15); }
     .input-hint { font-size:11px; color:var(--text-faint); margin-top:2px; }
 
@@ -441,7 +442,7 @@
       box-shadow:0 4px 16px rgba(253,38,122,0.25);
     }
 
-    /* Photo Upload */
+    /* Photo Upload — Single Slot */
     .photo-upload-section {
       margin-top:var(--sp-4); padding:var(--sp-5);
       background:rgba(18,10,20,0.5); border:1px solid var(--border);
@@ -452,8 +453,8 @@
       margin-bottom:var(--sp-3);
     }
     .photo-upload-label {
-      font-family:var(--font-mono); font-size:10px; letter-spacing:0.15em;
-      text-transform:uppercase; color:var(--text-muted);
+      font-family:var(--font-mono); font-size:11px; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--text-secondary); font-weight:600;
     }
     .photo-upload-badge {
       font-family:var(--font-mono); font-size:9px; letter-spacing:0.06em;
@@ -462,50 +463,40 @@
       color:var(--success);
     }
     .photo-upload-hint {
-      font-size:11px; color:var(--text-faint); margin-bottom:var(--sp-3);
+      font-size:12px; color:var(--text-muted); margin-bottom:var(--sp-3);
     }
-    .photo-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-3);
-    }
-    .photo-slot {
-      aspect-ratio:1; border-radius:var(--r-md);
-      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-      cursor:pointer; transition:all 0.3s; position:relative; overflow:hidden;
-    }
-    .photo-slot.primary {
-      border:2px dashed var(--t-mid);
-      background:rgba(253,38,122,0.04);
-    }
-    .photo-slot.secondary {
-      border:1px solid var(--border2);
+    .photo-dropzone {
+      border:1px dashed var(--border2); border-radius:var(--r-md);
+      padding:var(--sp-5) var(--sp-4);
+      display:flex; align-items:center; justify-content:center; gap:var(--sp-3);
+      cursor:pointer; transition:all 0.3s; position:relative;
       background:rgba(18,10,20,0.6);
     }
-    .photo-slot:hover { border-color:var(--t-orange); background:rgba(255,120,84,0.06); }
-    .photo-slot-icon {
-      font-size:24px; opacity:0.5;
+    .photo-dropzone:hover { border-color:var(--t-orange); background:rgba(255,120,84,0.06); }
+    .photo-dropzone-icon { font-size:28px; opacity:0.6; }
+    .photo-dropzone-text {
+      font-family:var(--font-body); font-size:13px; color:var(--text-muted);
     }
-    .photo-slot-label {
-      font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em;
-      text-transform:uppercase;
-    }
-    .photo-slot.primary .photo-slot-label { color:var(--t-mid); }
-    .photo-slot.secondary .photo-slot-label { color:var(--text-faint); }
-    .photo-slot input[type="file"] {
+    .photo-dropzone-text strong { color:var(--text-secondary); }
+    .photo-dropzone input[type="file"] {
       position:absolute; inset:0; opacity:0; cursor:pointer;
     }
-    .photo-slot .photo-preview {
-      position:absolute; inset:0; object-fit:cover; width:100%; height:100%;
-      border-radius:var(--r-md);
+    .photo-thumbs {
+      display:flex; gap:var(--sp-2); flex-wrap:wrap; margin-top:var(--sp-3);
     }
-    .photo-slot .photo-remove {
-      position:absolute; top:6px; right:6px; width:22px; height:22px;
-      border-radius:50%; background:rgba(0,0,0,0.7); border:1px solid rgba(255,255,255,0.2);
-      color:#fff; font-size:12px; display:none; align-items:center; justify-content:center;
-      cursor:pointer; z-index:2;
+    .photo-thumb {
+      width:56px; height:56px; border-radius:var(--r-sm); overflow:hidden;
+      position:relative; border:1px solid var(--border);
     }
-    .photo-slot.has-photo .photo-remove { display:flex; }
-    .photo-slot.has-photo .photo-slot-icon,
-    .photo-slot.has-photo .photo-slot-label { display:none; }
+    .photo-thumb img {
+      width:100%; height:100%; object-fit:cover;
+    }
+    .photo-thumb-remove {
+      position:absolute; top:2px; right:2px; width:18px; height:18px;
+      border-radius:50%; background:rgba(0,0,0,0.75); border:1px solid rgba(255,255,255,0.2);
+      color:#fff; font-size:10px; display:flex; align-items:center; justify-content:center;
+      cursor:pointer; z-index:2; line-height:1;
+    }
 
     .photo-lgpd {
       display:flex; align-items:flex-start; gap:var(--sp-2);
@@ -863,7 +854,7 @@
       margin-top:var(--sp-10);
     }
     .step-card {
-      background:var(--glass-bg); border:1px solid var(--glass-border);
+      background:var(--glass-bg); border:1px solid rgba(255,120,84,0.2);
       backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur);
       border-radius:var(--r-xl); padding:var(--sp-8);
       position:relative; overflow:hidden;
@@ -877,25 +868,25 @@
       opacity:0; transition:opacity 0.4s; pointer-events:none;
     }
     .step-card:hover::after { opacity:1; }
-    .step-card:hover { border-color:rgba(255,120,84,0.35); transform:translateY(-3px); }
+    .step-card:hover { border-color:rgba(255,120,84,0.4); transform:translateY(-3px); }
 
     .step-number {
       font-family:var(--font-display); font-size:48px; font-weight:800;
       letter-spacing:-0.04em; line-height:1;
       background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-      opacity:0.2; margin-bottom:var(--sp-4);
+      opacity:0.35; margin-bottom:var(--sp-4);
     }
     .step-icon {
-      width:48px; height:48px; border-radius:var(--r-md);
-      background:rgba(255,120,84,0.1); border:1px solid rgba(255,120,84,0.2);
+      width:52px; height:52px; border-radius:var(--r-md);
+      background:rgba(255,120,84,0.12); border:1px solid rgba(255,120,84,0.25);
       display:flex; align-items:center; justify-content:center;
-      font-size:22px; margin-bottom:var(--sp-4);
+      font-size:26px; margin-bottom:var(--sp-4);
     }
     .step-title {
-      font-family:var(--font-mono); font-size:11px; letter-spacing:0.15em;
+      font-family:var(--font-mono); font-size:12px; letter-spacing:0.12em; font-weight:600;
       text-transform:uppercase; color:var(--t-orange); margin-bottom:var(--sp-2);
     }
-    .step-desc { font-size:13px; color:var(--text-muted); line-height:1.6; }
+    .step-desc { font-size:14px; color:var(--text-secondary); line-height:1.7; }
 
     @media(max-width:768px) {
       .steps-grid { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
@@ -1121,7 +1112,7 @@
       .btn-cta { width:100%; padding:16px; font-size:14px; }
       .offer-card-inner { padding:var(--sp-8) var(--sp-5); }
       .hero-credentials { gap:var(--sp-4); }
-      .credential-item { font-size:11px; }
+      .credential-item { font-size:12px; font-weight:500; }
       .hero-app-chips { gap:6px; }
       .app-chip { padding:5px 10px; font-size:11px; }
     }
@@ -1136,7 +1127,7 @@
       .photo-upload-badge { display:none; }
       .scan-photo-wrap { width:140px; height:140px; }
       .results-grid { grid-template-columns:1fr; max-width:280px; }
-      .hero-credentials { flex-wrap:wrap; justify-content:center; gap:var(--sp-3); }
+      .hero-credentials { flex-wrap:wrap; justify-content:center; gap:var(--sp-4); }
       .hero-app-chips { gap:5px; }
       .app-chip { padding:4px 8px; font-size:10px; gap:4px; }
       .app-chip-icon { font-size:13px; }
@@ -1231,12 +1222,9 @@
     <!-- App Chips -->
     <div class="hero-app-chips">
       <div class="app-chip"><span class="app-chip-icon">🔥</span> Tinder</div>
-      <div class="app-chip"><span class="app-chip-icon">🐝</span> Bumble</div>
-      <div class="app-chip"><span class="app-chip-icon">💎</span> Hinge</div>
       <div class="app-chip"><span class="app-chip-icon">💜</span> Badoo</div>
       <div class="app-chip"><span class="app-chip-icon">💚</span> Happn</div>
-      <div class="app-chip"><span class="app-chip-icon">💗</span> Meetic</div>
-      <div class="app-chip"><span class="app-chip-icon">🍒</span> Fruitz</div>
+      <div class="app-chip"><span class="app-chip-icon">📱</span> +10 apps de relacionamento</div>
     </div>
 
     <!-- Stats -->
@@ -1320,43 +1308,23 @@
             <input class="input" type="text" id="inputCity" placeholder="Ex: São Paulo">
           </div>
 
-          <!-- Photo Upload -->
+          <!-- Photo Upload — Single Slot -->
           <div class="photo-upload-section">
             <div class="photo-upload-header">
-              <span class="photo-upload-label">Fotos da pessoa</span>
+              <span class="photo-upload-label">Fotos da pessoa (opcional)</span>
               <span class="photo-upload-badge">Análise de similaridade avançada</span>
             </div>
-            <p class="photo-upload-hint">Use apenas fotos claras com o rosto visível e de frente</p>
-            <div class="photo-grid">
-              <div class="photo-slot primary" id="photoSlot0">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Obrigatório</span>
-                <input type="file" accept="image/*" data-slot="0">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot1">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 2</span>
-                <input type="file" accept="image/*" data-slot="1">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot2">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 3</span>
-                <input type="file" accept="image/*" data-slot="2">
-                <div class="photo-remove">&times;</div>
-              </div>
-              <div class="photo-slot secondary" id="photoSlot3">
-                <span class="photo-slot-icon">&#128247;</span>
-                <span class="photo-slot-label">Foto 4</span>
-                <input type="file" accept="image/*" data-slot="3">
-                <div class="photo-remove">&times;</div>
-              </div>
+            <p class="photo-upload-hint">Fotos claras com o rosto visível aumentam a precisão da busca</p>
+            <div class="photo-dropzone" id="photoDropzone">
+              <span class="photo-dropzone-icon">&#128247;</span>
+              <div class="photo-dropzone-text"><strong>Clique para enviar</strong> ou arraste fotos aqui</div>
+              <input type="file" accept="image/*" multiple id="photoInput">
             </div>
+            <div class="photo-thumbs" id="photoThumbs"></div>
             <div class="photo-lgpd">
               <span class="photo-lgpd-icon">&#128737;&#65039;</span>
               <div class="photo-lgpd-text">
-                <strong>Os seus dados estão protegidos</strong> — De acordo com a LGPD, as fotos são utilizadas apenas para a análise. As fotos enviadas são automaticamente eliminadas minutos após a análise.
+                <strong>Os seus dados estão protegidos</strong> — De acordo com a LGPD, as fotos são utilizadas apenas para a análise e eliminadas automaticamente após a verificação.
               </div>
             </div>
           </div>
@@ -1610,11 +1578,9 @@
 
     <div class="app-chips" style="display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-2);margin-top:var(--sp-6);">
       <div class="app-chip"><span class="app-chip-icon">🔥</span> Tinder</div>
-      <div class="app-chip"><span class="app-chip-icon">🐝</span> Bumble</div>
-      <div class="app-chip"><span class="app-chip-icon">💎</span> Hinge</div>
       <div class="app-chip"><span class="app-chip-icon">💜</span> Badoo</div>
       <div class="app-chip"><span class="app-chip-icon">💚</span> Happn</div>
-      <div class="app-chip"><span class="app-chip-icon">💗</span> Meetic</div>
+      <div class="app-chip"><span class="app-chip-icon">📱</span> +10 apps de relacionamento</div>
     </div>
   </div>
 </section>
@@ -1627,19 +1593,17 @@
     <div class="offer-card">
       <div class="offer-card-bar"></div>
       <div class="offer-card-inner">
-        <h2 class="offer-headline">Verificação completa por R$37,90.</h2>
+        <h2 class="offer-headline">Relatório completo e detalhado.</h2>
         <div class="offer-benefits">
-          <div class="offer-benefit"><span class="check">&#10003;</span> Verificação completa em Tinder, Bumble, Hinge e Badoo</div>
+          <div class="offer-benefit"><span class="check">&#10003;</span> Verificação completa em Tinder, Badoo, Happn e +10 apps</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Relatório detalhado com fotos, bio e última atividade</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Processo 100% anônimo e discreto</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Resultado em minutos, direto no seu celular</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Pagamento único — sem assinatura, sem surpresas</div>
           <div class="offer-benefit"><span class="check">&#10003;</span> Conformidade total com a LGPD</div>
         </div>
-        <div class="offer-price">R$37,90</div>
-        <div class="offer-price-sub">Menos que uma pizza. O preço da sua paz de espírito.</div>
-        <a href="#busca" class="btn-cta" style="width:100%;max-width:400px;">DESBLOQUEAR MEU RELATÓRIO — R$37,90</a>
-        <p class="offer-trust">&#128274; Pagamento seguro · Cobrança única · Dados protegidos pela LGPD</p>
+        <a href="#busca" class="btn-cta" style="width:100%;max-width:400px;">INICIAR VERIFICAÇÃO →</a>
+        <p class="offer-trust">&#128274; Anônimo · Seguro · Dados protegidos pela LGPD</p>
       </div>
     </div>
   </div>
@@ -1878,40 +1842,40 @@
     });
   });
 
-  /* ── PHOTO UPLOAD ── */
-  var uploadedPhotos = [null, null, null, null];
-  document.querySelectorAll('.photo-slot input[type="file"]').forEach(function(input){
-    input.addEventListener('change', function(e){
-      var slot = parseInt(this.getAttribute('data-slot'));
-      var file = e.target.files[0];
-      if(!file) return;
-      var reader = new FileReader();
-      reader.onload = function(ev){
-        uploadedPhotos[slot] = ev.target.result;
-        var slotEl = document.getElementById('photoSlot' + slot);
-        var existing = slotEl.querySelector('.photo-preview');
-        if(existing) existing.remove();
-        var img = document.createElement('img');
-        img.className = 'photo-preview';
-        img.src = ev.target.result;
-        slotEl.appendChild(img);
-        slotEl.classList.add('has-photo');
-      };
-      reader.readAsDataURL(file);
+  /* ── PHOTO UPLOAD (single dropzone, multiple files) ── */
+  var uploadedPhotos = [];
+  var photoInput = document.getElementById('photoInput');
+  var photoThumbs = document.getElementById('photoThumbs');
+  if(photoInput) {
+    photoInput.addEventListener('change', function(e){
+      var files = Array.from(e.target.files);
+      files.forEach(function(file){
+        if(!file || !file.type.startsWith('image/')) return;
+        var reader = new FileReader();
+        reader.onload = function(ev){
+          uploadedPhotos.push(ev.target.result);
+          renderPhotoThumbs();
+        };
+        reader.readAsDataURL(file);
+      });
+      photoInput.value = '';
     });
-  });
-  document.querySelectorAll('.photo-remove').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation(); e.preventDefault();
-      var slotEl = btn.parentElement;
-      var slotIdx = parseInt(slotEl.querySelector('input').getAttribute('data-slot'));
-      uploadedPhotos[slotIdx] = null;
-      var preview = slotEl.querySelector('.photo-preview');
-      if(preview) preview.remove();
-      slotEl.classList.remove('has-photo');
-      slotEl.querySelector('input').value = '';
+  }
+  function renderPhotoThumbs(){
+    if(!photoThumbs) return;
+    photoThumbs.innerHTML = '';
+    uploadedPhotos.forEach(function(src, idx){
+      var thumb = document.createElement('div');
+      thumb.className = 'photo-thumb';
+      thumb.innerHTML = '<img src="'+src+'" alt=""><div class="photo-thumb-remove" data-idx="'+idx+'">&times;</div>';
+      thumb.querySelector('.photo-thumb-remove').addEventListener('click', function(e){
+        e.stopPropagation(); e.preventDefault();
+        uploadedPhotos.splice(idx, 1);
+        renderPhotoThumbs();
+      });
+      photoThumbs.appendChild(thumb);
     });
-  });
+  }
 
   /* ── FUNNEL STATE MACHINE ── */
   var stepForm = document.getElementById('stepForm');
@@ -1966,7 +1930,7 @@
     if(!validateForm()) return;
 
     var cityVal = document.getElementById('inputCity').value.trim();
-    var hasPhoto = uploadedPhotos[0] !== null;
+    var hasPhoto = uploadedPhotos.length > 0;
 
     // Setup scan photo
     if(hasPhoto){
@@ -1986,8 +1950,8 @@
     // If user uploaded photos, use them blurred in result cards
     if(hasPhoto){
       for(var ri = 0; ri < 3; ri++){
-        var photoIdx = Math.min(ri, uploadedPhotos.filter(function(p){return p!==null;}).length - 1);
-        var photoSrc = uploadedPhotos[photoIdx] || uploadedPhotos[0];
+        var photoIdx = Math.min(ri, uploadedPhotos.length - 1);
+        var photoSrc = uploadedPhotos[photoIdx];
         var container = document.getElementById('resultPhoto' + ri);
         if(container && photoSrc){
           container.innerHTML = '<img src="' + photoSrc + '" style="width:100%;height:100%;object-fit:cover;filter:blur(22px) brightness(0.7) saturate(0.6) hue-rotate(' + (ri*25) + 'deg);transform:scale(1.' + (15+ri*5) + ')">';
